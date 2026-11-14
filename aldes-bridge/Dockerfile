@@ -3,7 +3,7 @@ FROM node:20-alpine AS web
 ARG CACHEBUST=tflow-collectif-1
 RUN echo "Cache bust: $CACHEBUST" && date
 RUN apk add --no-cache git
-RUN git clone --depth 1 --branch feature/tflow-hygro-200-collectif https://github.com/zpaul91/aldes-bridge.git /src
+RUN git clone --depth 1 --branch main https://github.com/zpaul91/aldes-bridge.git /src
 WORKDIR /src/web
 RUN npm ci --no-audit --no-fund && npm run build
 
